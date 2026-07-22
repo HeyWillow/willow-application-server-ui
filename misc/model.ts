@@ -1,6 +1,6 @@
 export interface Client {
   hostname: string;
-  platform: string;
+  platform?: string | null;
   mac_addr: string;
   ip: string;
   port: number;

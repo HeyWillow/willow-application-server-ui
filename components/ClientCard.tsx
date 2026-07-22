@@ -12,7 +12,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Image from 'next/image';
 import * as React from 'react';
-import { ClientImages } from '../misc/clientimages';
+import { ClientImages, UnknownImage } from '../misc/clientimages';
 import { Client, ReleaseAsset } from '../misc/model';
 import {
   ApplyConfigDialog,
@@ -111,6 +111,8 @@ export default function ClientCard({
   latestReleaseName: string | undefined;
 }) {
   const [openOtaDialog, setOpenOtaDialog] = React.useState<boolean>(false);
+  const clientPlatform = client.platform || 'Unknown';
+  const clientImage = ClientImages[clientPlatform];
 
   return (
     <Fade in={true} timeout={1000}>
@@ -123,10 +125,10 @@ export default function ClientCard({
         <CardHeader
           avatar={
             <Image
-              src={ClientImages[client.platform]}
+              src={clientImage ?? UnknownImage}
               width={50}
               height={50}
-              alt={client.platform}
+              alt={clientImage ? clientPlatform : 'Unknown device'}
               priority={true}
               placeholder="blur"></Image>
           }
@@ -144,7 +146,7 @@ export default function ClientCard({
               <ListItemText sx={{ margin: 0 }} primary={'IP Address: ' + client.ip} />
             </ListItem>
             <ListItem sx={{ paddingTop: 0, paddingBottom: 0, maxWidth: 300 }}>
-              <ListItemText sx={{ margin: 0 }} primary={'Platform: ' + client.platform} />
+              <ListItemText sx={{ margin: 0 }} primary={'Platform: ' + clientPlatform} />
             </ListItem>
             <ListItem sx={{ paddingTop: 0, paddingBottom: 0, maxWidth: 300 }}>
               <ListItemText sx={{ margin: 0 }} primary={'Version: ' + client.version} />
