@@ -10,4 +10,4 @@ COPY . .
 RUN npm run build
 
 FROM scratch AS artifact
-COPY --from=build /was-ui/out /out
+COPY --from=build /was-ui/out /was-ui/out
