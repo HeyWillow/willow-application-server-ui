@@ -49,7 +49,7 @@ build)
 ;;
 
 build-docker|docker-build)
-    docker build -t "$TAG" -f Dockerfile .
+    docker build --target build -t "$TAG" -f Dockerfile .
 ;;
 
 install)
