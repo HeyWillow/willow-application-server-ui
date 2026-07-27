@@ -14,6 +14,7 @@ export interface Release {
   assets: ReleaseAsset[];
   latest: boolean;
   prerelease: boolean;
+  was_compatible?: boolean;
 }
 
 export interface ReleaseAsset {
