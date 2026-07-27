@@ -7,7 +7,7 @@
     "postinstall": "next telemetry disable",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "prettier": "prettier --write --ignore-unknown --list-different ."
   },
   "dependencies": {
@@ -17,36 +17,42 @@
     "@mui/material": "^6.4.10",
     "@mui/styled-engine-sc": "^6.0.0-alpha.4",
     "@mui/x-date-pickers": "^7.28.3",
-    "axios": "^1.18.0",
+    "axios": "^1.18.1",
     "dayjs": "^1.11.10",
     "fetch-to-curl": "^0.6.0",
     "minidenticons": "^4.2.0",
-    "next": "^15.5.18",
+    "next": "^15.5.22",
     "react": "^19.1.0",
     "react-code-blocks": "^0.1.4",
     "react-datetime": "^3.3.1",
     "react-dom": "^19.1.0",
     "react-responsive": "^9.0.2",
     "react-toastify": "^11.0.5",
-    "sharp": "^0.33.0",
-    "styled-components": "^6.1.0",
+    "sharp": "^0.35.3",
+    "styled-components": "^6.4.4",
     "swr": "^2.3.3",
     "use-debounce": "^8.0.4",
-    "yaml": "^2.3.4"
+    "yaml": "^2.9.0"
   },
   "devDependencies": {
+    "@next/eslint-plugin-next": "15.5.22",
+    "@typescript-eslint/parser": "8.65.0",
     "@types/node": "18.11.3",
     "@types/react": "19.1.0",
     "@types/react-dom": "19.1.1",
-    "eslint": "9.23.0",
-    "eslint-config-next": "15.2.4",
+    "eslint": "10.8.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-react-hooks": "7.1.1",
     "http-server": "^14.1.1",
     "prettier": "^3.0.3",
     "typescript": "4.8.4"
   },
   "overrides": {
+    "next": {
+      "postcss": "8.5.23",
+      "sharp": "0.35.3"
+    },
     "prismjs":"1.30.0"
   }
 }
