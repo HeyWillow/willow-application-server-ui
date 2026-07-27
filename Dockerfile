@@ -1,10 +1,13 @@
 ARG NODE_VER="22-bookworm-slim"
 
-FROM node:${NODE_VER}
+FROM node:${NODE_VER} AS build
 WORKDIR /was-ui
-COPY . .
 
-RUN npm install
+COPY package.json package-lock.json ./
+RUN npm ci
+
+COPY . .
 RUN npm run build
 
-EXPOSE 3000
+FROM scratch AS artifact
+COPY --from=build /was-ui/out /out
