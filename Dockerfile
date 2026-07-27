@@ -1,4 +1,4 @@
-ARG NODE_VER="18.18-bookworm-slim"
+ARG NODE_VER="22-bookworm-slim"
 
 FROM node:${NODE_VER}
 WORKDIR /was-ui
@@ -8,4 +8,3 @@ RUN npm install
 RUN npm run build
 
 EXPOSE 3000
-
